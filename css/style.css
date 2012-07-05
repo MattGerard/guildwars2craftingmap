@@ -1,0 +1,659 @@
+			@font-face {
+				font-family: 'CronosMMRegular';
+				src: url('font/cronos-mm-webfont.eot');
+				src: url('font/cronos-mm-webfont.eot?#iefix') format('embedded-opentype'),
+					 url('font/cronos-mm-webfont.woff') format('woff'),
+					 url('font/cronos-mm-webfont.ttf') format('truetype'),
+					 url('font/cronos-mm-webfont.svg#CronosMMRegular') format('svg');
+				font-weight: normal;
+				font-style: normal;
+			
+			}
+		
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				text-align:center;
+				font-family: 'CronosMMRegular';
+				
+			}
+			
+			#map {
+				width:100%;
+				height:100%;
+				text-align: center;
+				z-index:99;
+				color: #CCC;
+				background: #000!important;
+				overflow:hidden;
+			}
+			
+			.map_descText_text{
+			width:200px;
+			height:50px;	
+			font-size:12px;
+			text-align:left;
+			color:#000;
+			}
+			
+
+			
+			#message{
+   		    margin: 5px;
+			z-index: 103;	
+			position:fixed;
+			bottom: 0;
+    		left: 0;
+			margin:10px;
+			color:#fff;
+			text-shadow: 1px 1px #000000;
+			background:url('../img/red-bg.png') repeat-x top left;
+			font-family: 'CronosMMRegular';
+			-webkit-border-radius: 8px;
+			-moz-border-radius: 8px;
+			border-radius: 8px;
+			}
+			
+			#message div{
+			padding:10px;
+			}
+			
+			.LocationAdded,.LocationUpdated,.LocationDeleted,.PleaseSelectNode{
+			display:none;
+			
+			}
+
+			#AddMenu, #ViewMenu, #help{
+				display:none;	
+				float:left;
+				cursor:url('../img/GW2cursor.png'), -moz-zoom-in;
+			}
+
+			.activeMarker{
+			font-weight:bold;	
+			}
+
+
+#BugReport{
+	background: url("../img/bug-report.png") repeat scroll 0 0 transparent;
+    bottom: 0;
+    height: 30px;
+    margin-bottom: 20px;
+    margin-right: 0;
+    position: absolute;
+    right: 0;
+    width: 100px;
+    z-index: 100;
+	
+	display:block;
+}
+
+#BugReport a{
+	display:block;
+	width:100px;
+	height:30px;
+	
+}
+
+#BugReport a:hover{
+	cursor:url('../img/GW2cursor-hover.png'), -moz-zoom-in;
+}
+
+/*** MENU ***/
+
+			.controlToggle{
+				background: url("../img/trans-white-bg.png") repeat scroll 0 0 transparent;
+				color: #000000;
+				cursor:url('../img/GW2cursor.png'), -moz-zoom-in;
+				float: right;
+				font-size: 20px;
+				padding: 10px;
+				position: relative;
+				right: 0;
+				width: 85px;
+				z-index: 100;
+				box-shadow: 2px 0 5px #000000;
+				-moz-box-shadow: 2px 0 5px #000000;
+				-webkit-box-shadow: 2px 0 5px #000000;
+			}
+			
+			.controlToggle:hover{
+				font-weight:bold;
+				cursor:url('../img/GW2cursor-hover.png'), -moz-zoom-in;
+			}
+			
+			#controlWrapper{
+				float: left;
+				left: 0;
+				position: absolute;
+				z-index: 100;
+			}
+			
+			#controls{
+				background: url("../img/trans-white-bg.png") repeat scroll 0 0 transparent;
+				display: none;
+				float: left;
+				height: 100%;
+				left: 0;
+				position: relative;
+				top: 0;
+				width: 250px;
+				z-index: 100;
+				box-shadow: 2px 0 5px #000000;
+				-moz-box-shadow: 2px 0 5px #000000;
+				-webkit-box-shadow: 2px 0 5px #000000;
+			}
+			
+			.ViewMenuBtns{
+				border-bottom: 1px solid #ddd;
+				border-top: 1px solid #DDDDDD;
+				clear: both;
+				float: left;
+				width: 250px;
+				cursor:url('../img/GW2cursor.png'), -moz-zoom-in;
+				background: url("../img/trans-black-bg.png") repeat scroll 0 0 transparent;
+			}
+			
+			.ViewMenuBtns:hover{
+				cursor:url('../img/GW2cursor-hover.png'), -moz-zoom-in;
+			}
+			
+			#ViewAddMenu{
+				color: #FFFFFF;
+				float: left;
+				padding: 13px 0 13px 13px;
+				text-align: left;
+				width: 237px;
+			}
+			
+			#ViewAddMenu:hover{
+				
+			}
+			
+			#ViewToggleMenu{
+				color: #FFFFFF;
+				float: left;
+				padding: 13px 0 13px 13px;
+				text-align: left;
+				width: 237px;
+			}
+			
+			/*** ADD Menu li ***/
+			
+			#AddMenu ul li{
+				display: block;
+				float: left;
+				list-style: none outside none;
+				text-align: left;
+				width: 100%;
+				margin-bottom: 3px;
+			}
+			
+			#AddMenu ul li a{
+				display:block;
+				cursor:url('../img/GW2cursor-hover.png'), -moz-zoom-in;
+				text-decoration: none;
+			}
+			
+			#AddMenu ul li a.ActiveNode{
+				
+			}
+			
+			#AddMenu ul{
+				margin: 10px;
+				padding: 0;
+				width: 230px;
+
+			}
+
+
+			
+			/*** TOGGLE Menu li ***/
+			#ViewMenu ul li{
+				display: block;
+				float: left;
+				list-style: none outside none;
+				margin-bottom: 3px;
+				text-align: left;
+				width: 100%;
+			}
+			
+			#ViewMenu ul li a{
+				display:block;
+				cursor:url('../img/GW2cursor-hover.png'), -moz-zoom-in;
+				text-decoration:none;
+			}
+			
+			#ViewMenu ul li a.activeMarker{
+				
+			}
+			
+			#ViewMenu ul{
+				margin: 10px;
+				padding: 0;
+				width: 230px;
+			}
+			
+
+/*** HELP MENU ***/
+
+			#help{
+				display:none;
+			}
+			
+			.helpMenu{
+				margin: 20px;
+				padding: 0;
+				width: 220px;
+			}
+			
+			.helpMenu li{
+				margin-bottom: 5px;
+				text-align: left;
+			}
+			
+			.helpMenu li a{
+				cursor:url('../img/GW2cursor-hover.png'), -moz-zoom-in;
+			}
+			
+			.helpBtnMain{
+				color: #FFFFFF;
+				float: left;
+				padding: 13px 0 13px 13px;
+				text-align: left;
+				width: 237px;
+			}
+			
+			/*** LOGO ***/
+
+			#logo{
+				background: url("../img/bteamlogo.png") no-repeat scroll 0 0 transparent;
+				float: right;
+				height: 32px;
+				margin-right: 5px;
+				position: relative;
+				top: 3px;
+				width: 135px;
+				z-index: 103;
+			}
+
+			#logo a{
+				display:block;
+				width:135px;
+				height:32px;
+				cursor:url('../img/GW2cursor-hover.png'), -moz-zoom-in;
+			}
+			
+			a{
+				outline: none;
+			}
+			a:focus{
+				-moz-outline-style: none;
+			}
+			
+			/*** Welcome ***/
+			
+			#welcome{
+				display: none;
+				float: left;
+				margin: 0 auto;
+				position: absolute;
+				top: 40px;
+				width: 100%;
+				z-index: 100;
+				cursor:url('../img/GW2cursor.png'), -moz-zoom-in;
+			}
+			
+			#welcomeWrap{
+				width: 250px;
+				margin: 0 auto;
+				
+			}
+			
+			.welcomeText{
+				background: none repeat scroll 0 0 #FFFFFF;
+				border-radius: 8px 8px 8px 8px;
+				cursor: url("../img/GW2cursor.png"), -moz-zoom-in;
+				float: left;
+				margin: 0 auto;
+				padding: 15px;
+				width: 500px;
+			}
+			
+			.welcomeTextIn{
+				float:left;
+				cursor:url('../img/GW2cursor.png'), -moz-zoom-in;
+				
+			}
+			
+			.welcomeTextIn ul{
+				margin: 0;
+				padding: 10px;
+				text-align: left;
+			}
+			.welcomeTextIn ul li{
+				margin-bottom:5px;	
+			}
+			
+			.welcomeText .close{
+				float:right;
+				font-weight: bold;
+				cursor:url('../img/GW2cursor-hover.png'), -moz-zoom-in;
+			}
+			
+			/*** Toggle Icon Images ***/
+			
+			.ViewMenuIcon{
+				float:left;	
+				margin-right: 5px;
+				width:28px;
+				height:28px;
+			}
+			
+			.ViewMenuText{
+				font-size: 15px;
+				position: relative;
+				top: 5px;
+				color:#444;
+			}
+			
+			a.visible div.ViewMenuIcon{
+				filter: alpha(opacity=100);
+				-moz-opacity:1;
+				-khtml-opacity: 1;
+				opacity: 1;
+			}
+			
+			a.ActiveNode div.ViewMenuText{
+				color:#000;
+			}
+			
+			a div.ViewMenuIcon{
+				filter: alpha(opacity=50);
+				-moz-opacity:0.5;
+				-khtml-opacity: 0.5;
+				opacity: 0.5;
+			}
+			
+			/*** Adding Icon Images ***/
+			
+			.AddMenuIcon{
+				float:left;
+				margin-right: 5px;
+				width:28px;
+				height:28px;
+			}
+			
+			.AddMenuText{
+				font-size: 15px;
+				position: relative;
+				top: 5px;
+				color:#444;
+			}
+			
+			a.ActiveNode div.AddMenuIcon{
+				filter: alpha(opacity=100);
+				-moz-opacity:1;
+				-khtml-opacity: 1;
+				opacity: 1;
+			}
+			
+			a.ActiveNode div.AddMenuText{
+				color:#000;
+			}
+			
+			a div.AddMenuIcon{
+				filter: alpha(opacity=50);
+				-moz-opacity:0.5;
+				-khtml-opacity: 0.5;
+				opacity: 0.5;
+			}
+			
+			.ironIcon, .MarkerHeaderIcon.IronOre{
+				background: url("../marker-images/ironOre.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.copperIcon, .MarkerHeaderIcon.CopperOre{
+				background: url("../marker-images/copperOre.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.tinyVenomIcon, .MarkerHeaderIcon.TinyVenom{
+				background: url("../marker-images/tinyVenom.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.vialOfWeakBloodIcon, .MarkerHeaderIcon.VialOfWeakBlood{
+				background: url("../marker-images/vialOfWeakBlood.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.vialOfThinBloodIcon, .MarkerHeaderIcon.VialOfThinBlood{
+				background: url("../marker-images/vialOfThinBlood.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.tinyClawIcon, .MarkerHeaderIcon.TinyClaw{
+				background: url("../marker-images/tinyClaw.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.tinyFangIcon, .MarkerHeaderIcon.TinyFang{
+				background: url("../marker-images/tinyFang.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.tinyScaleIcon, .MarkerHeaderIcon.TinyScale{
+				background: url("../marker-images/tinyScale.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.tinyTotemIcon, .MarkerHeaderIcon.TinyTotem{
+				background: url("../marker-images/tinyTotem.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.woolScrapIcon, .MarkerHeaderIcon.WoolScrap{
+				background: url("../marker-images/woolScrap.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.tinyHuskIcon, .MarkerHeaderIcon.TinyHusk{
+				background: url("../marker-images/tinyHusk.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.tinyHornIcon, .MarkerHeaderIcon.TinyHorn{
+				background: url("../marker-images/tinyHorn.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.silverOreIcon, .MarkerHeaderIcon.SilverOre{
+				background: url("../marker-images/silverOre.png") no-repeat scroll 0 0 transparent;
+			}
+						
+			.seasonedWoodLogIcon, .MarkerHeaderIcon.SeasonedWoodLog{
+				background: url("../marker-images/seasonedWoodLog.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.softWoodLogIcon, .MarkerHeaderIcon.SoftWoodLog{
+				background: url("../marker-images/softWoodLog.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.smallTotemIcon, .MarkerHeaderIcon.SmallTotem{
+				background: url("../marker-images/smallTotem.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.totemIcon, .MarkerHeaderIcon.Totem{
+				background: url("../marker-images/totem.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.smallClawIcon, .MarkerHeaderIcon.SmallClaw{
+				background: url("../marker-images/smallClaw.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.skullIcon, .MarkerHeaderIcon.Skull{
+				background: url("../marker-images/skull.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.spikeIcon, .MarkerHeaderIcon.Spike{
+				background: url("../marker-images/spike.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			.eyeIcon, .MarkerHeaderIcon.Eye{
+				background: url("../marker-images/eye.png") no-repeat scroll 0 0 transparent;
+			}
+			
+			/*** MARKER INFO WINDOW ***/
+			
+			.customMarkerStyle{
+				text-align: left;
+				text-shadow: 1px 1px 2px #000000;
+				color:#fff;
+			}
+			
+			.MarkerName{
+				color: #EDA13B;
+				font-weight: bold;
+				position: relative;
+				text-shadow: 2px 2px 3px #000000;
+				top: 5px;	
+			}
+			
+			.MarkerHeaderWrap{
+				height: 28px;
+				text-align: left;
+			}
+			
+			.MarkerLabel{
+				color: #EDA13B;
+				cursor: default;
+				float: left;
+				font-weight: bold;
+				margin-right: 5px;
+				text-shadow: 2px 2px 3px #000000;	
+			}
+			
+			.MarkerHeaderIcon{
+				float: left;
+				height: 28px;
+				width: 28px;
+				margin-right:5px;
+			}
+			
+			.MarkerDesc{
+				display: block;
+				float: left;
+				margin-bottom: 5px;
+				margin-top: 20px;
+				position: relative;
+				width: 100%;
+			}
+			
+			.MarkerVeinType{
+				display: block;
+				float: left;
+				margin-bottom: 5px;
+				position: relative;
+				width: 100%;
+			}
+			
+			.MarkerWikiUrl{
+				float:left;
+				margin-bottom:5px;
+				position: relative;	
+			}
+			
+			.MarkerWikiUrl a{
+				color:#fff;
+				text-decoration:none;
+			}
+			
+			.MarkerWikiUrl a:hover{
+				color:#ccc;	
+			}
+			
+			.infoWindowClose{
+				z-index: 101;
+			}
+			
+			/*** MISC ***/
+			
+			#LatLong{
+				bottom: 8px;
+				color: #FFFFFF;
+				margin-left: 80px;
+				position: absolute;
+				z-index: 101;
+			}
+			
+			.latContainer{
+				float: left;
+    			margin-right: 6px;
+			}
+			
+			.longContainer{
+				float: left;
+			}
+			
+			textarea#descText{
+  				 resize: none;
+				 height: 96px;
+    			 width: 228px;
+			}
+			
+			#login{
+				color: #FFFFFF;
+				float: left;
+				margin-left: 70px;
+				position: relative;
+				top: 5px;
+				z-index: 103;
+			}
+			
+			.loginbtn{
+				position:relative;
+				right:10px;	
+			}
+			
+			.MarkerFlag{
+				bottom: 28px;
+				float: left;
+				position: absolute;
+				right: 15px;
+				width:17px;
+				height:17px;
+				background:url("../img/flag.png") no-repeat;
+			}
+			.MarkerFlag a{
+				display:block;
+				width:17px;
+				height:17px;
+			}
+			
+			.MarkerEdit{
+				bottom: 30px;
+				left: 35px;
+				position: absolute;	
+			}
+			
+			#EditButton{
+				color: #EDA13B;
+				font-weight: bold;
+				text-shadow: 2px 2px 3px #000000;
+				text-decoration:none;
+			}
+			
+			.topBorder{
+				background: url("../img/top-border.png") repeat-x scroll 0 0 transparent;
+				height: 17px;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+				z-index: 101;
+			}
+			
+			#header-wrap{
+				background: url("../img/login-bg.png") no-repeat 0 0 transparent;
+				height: 81px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				z-index: 103;	
+			}
+			
+			
+			.OwnerViewEdit{
+				display:none;	
+			}
